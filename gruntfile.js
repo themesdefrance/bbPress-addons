@@ -28,12 +28,20 @@ module.exports = function(grunt){
 			},
 			
 		},
+		copy: {
+			build: {
+				expand: true,
+				src: ['**', '!.sass-cache', '!bbpress-etendard/', '!node_modules/**', '!Gruntfile.js', '!README.md', '!package.json'],
+				dest: 'bbpress-etendard/',
+			}
+		}
 	});
 	
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-compass');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 	
 	grunt.registerTask('default', ['compass:dev']);
-	grunt.registerTask('build', ['compass:dev','compass:build']);
+	grunt.registerTask('build', ['compass:dev','compass:build','copy:build']);
 
 }
