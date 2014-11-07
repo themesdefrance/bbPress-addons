@@ -6,7 +6,8 @@ Version: 1.0.0
 Description: Ce module permet d'adapter le thème WordPress Étendard pour le plugin bbPress.
 Author: Thèmes de France
 Author URI: https://www.themesdefrance.fr
-Domain: etendard-bbpress
+Text Domain: etendard-bbpress
+License: GPLv2
 
 This plugin is based on Justin Kopepasah' Eighties bbPress addon.
 
