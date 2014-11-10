@@ -41,7 +41,7 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	
-	grunt.registerTask('default', ['compass:dev']);
+	grunt.registerTask('default', ['compass:dev','compass:build']);
 	grunt.registerTask('build', ['compass:dev','compass:build','copy:build']);
 
 }
