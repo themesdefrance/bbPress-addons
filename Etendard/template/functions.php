@@ -7,6 +7,50 @@ function etendard_bbp_default_styles( $styles ) {
 }
 add_filter( 'bbp_default_styles', 'etendard_bbp_default_styles' );
 
+/* Get Étendard main color */
+
+if(!function_exists('etendard_bbpress_styles')){
+	function etendard_bbpress_styles(){
+		if (get_option('etendard_color')){
+			$color = apply_filters('etendard_color', get_option('etendard_color'));
+			
+			require_once get_template_directory() . '/admin/color_functions.php';
+			$hsl = etendard_RGBToHSL(etendard_HTMLToRGB($color));
+			if ($hsl->lightness > 180){
+				$contrast = '#333';
+			}
+			else{
+				$contrast = apply_filters('etendard_color_contrast', '#fff');
+			}
+			
+			$hsl->lightness -= 30;
+			$complement = apply_filters('etendard_color_complement', etendard_HSLToHTML($hsl->hue, $hsl->saturation, $hsl->lightness));
+		}
+		else{ // Default color
+			$color = '#02a7c6';
+			$complement = '#007f96';
+			$contrast = '#fff';
+		} ?>
+		
+		<style type="text/css">
+			#bbpress-forums a{
+				color: <?php echo $color; ?>;
+			}
+			#bbpress-forums button[type='submit']{
+				background: <?php echo $color; ?> !important;
+				color: <?php echo $contrast; ?> !important;
+			}
+			
+			button[type='submit']:hover{
+				background:<?php echo $complement; ?> !important;
+			}
+		</style>
+		
+		<?php
+	}
+}
+add_action('wp_head','etendard_bbpress_styles', 98);
+
 /**
  * Remove the Jetpack Infinite Scroll from the
  * forum archive.
