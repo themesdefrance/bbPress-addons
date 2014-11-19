@@ -1,4 +1,4 @@
-Etendard-bbPress-addon
+bbPress-addons
 ======================
 
-Addon to bring bbPress custom styles to Etendard
+Central repo for bbPress addons relative to Thèmes de France themes
