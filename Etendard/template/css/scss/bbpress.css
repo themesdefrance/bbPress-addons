@@ -141,10 +141,8 @@ li.bbp-forum-freshness, li.bbp-topic-freshness {
   padding: 8px;
 }
 
-li.bbp-header div.bbp-topic-content span#subscription-toggle, li.bbp-header div.bbp-topic-content span#favorite-toggle {
-  float: right;
-}
-li.bbp-header div.bbp-reply-content span#subscription-toggle, li.bbp-header div.bbp-reply-content span#favorite-toggle {
+#subscription-toggle,
+#favorite-toggle {
   float: right;
 }
 
