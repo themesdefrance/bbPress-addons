@@ -4,9 +4,9 @@
 		
 		<div class="wrapper">
 			
-			<h1 class="headerbartitle">
-				<?php _e( 'Forum', 'etendard'); ?>
-			</h1>
+			<h2 class="headerbartitle">
+				<?php echo apply_filters('etendard_headerbar_bbpress', __('Forum', 'etendard')); ?>
+			</h2>
 			
 		</div>
 		
@@ -19,8 +19,26 @@
 			<?php if(have_posts()) : ?>
 			
 				<?php while (have_posts()) : the_post(); ?>
-
-					<?php the_content(); ?>
+					
+					<article <?php post_class('article'); ?>>
+					
+						<header class="header">
+							
+							<h1 class="header-title entry-title">
+								
+								<?php the_title(); ?>
+								
+							</h1>
+							
+						</header>
+						
+						<div class="content" itemprop="articleBody">
+							
+							<?php the_content(); ?>
+							
+						</div>
+					
+					</article>
 
 				<?php endwhile; ?>
 			
