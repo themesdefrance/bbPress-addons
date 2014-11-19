@@ -570,14 +570,15 @@ td {
   }
 }
 
-textarea {
-  &#bbp_reply_content, &#bbp_topic_content {
+textarea{	
+
+  &#bbp_reply_content, &#bbp_topic_content, &#bbp_forum_content {
     width: 97%;
     box-sizing: border-box;
+    font-family: "Maven Pro",Helvetica,Arial;
+    font-size:16px;
   }
   &#bbp_forum_content {
-    width: 97%;
-    box-sizing: border-box;
     height: 210px;
   }
 }
@@ -661,7 +662,7 @@ p.form-allowed-tags {
       textarea.bbp-the-content {
         width: 100%;
         margin: 0;
-        font-size: 14px;
+        font-size: 16px;
       }
       table, tbody, tr, td {
         border: none;

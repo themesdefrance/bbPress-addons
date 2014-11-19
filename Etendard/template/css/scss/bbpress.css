@@ -526,13 +526,13 @@ td.bbp-topic-admin-links, td.bbp-topic-counts {
   margin: 0 0 8px;
 }
 
-textarea#bbp_reply_content, textarea#bbp_topic_content {
+textarea#bbp_reply_content, textarea#bbp_topic_content, textarea#bbp_forum_content {
   width: 97%;
   box-sizing: border-box;
+  font-family: "Maven Pro",Helvetica,Arial;
+  font-size: 16px;
 }
 textarea#bbp_forum_content {
-  width: 97%;
-  box-sizing: border-box;
   height: 210px;
 }
 
@@ -606,7 +606,7 @@ p.form-allowed-tags {
 #bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content {
   width: 100%;
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
 }
 #bbpress-forums div.bbp-the-content-wrapper table, #bbpress-forums div.bbp-the-content-wrapper tbody, #bbpress-forums div.bbp-the-content-wrapper tr, #bbpress-forums div.bbp-the-content-wrapper td {
   border: none;
