@@ -412,8 +412,8 @@ td.bbp-topic-admin-links, td.bbp-topic-counts {
   background-color: #fdd;
 }
 
-#bbpress-forums .bbp-forum-info .bbp-forum-title {
-  font-size: 18px;
+#bbpress-forums .bbp-forum-info .bbp-forum-title, #bbpress-forums .bbp-topic-permalink {
+  font-size: 17px;
 }
 #bbpress-forums .bbp-forum-info .bbp-forum-content {
   font-size: 14px;
