@@ -19,12 +19,11 @@ if( !class_exists( 'EDD_SL_Plugin_Updater' ) ) {
 if(!function_exists('galopin_bbpress_addon_license')){
 	function galopin_bbpress_addon_license() {
 	
-	
 			// retrieve the license from the database
 			$license = trim( get_option( EDD_SL_GALOPIN_BBPRESS_LICENSE_KEY ) );
-			$status = get_option('galopin_license_status');
+			$status = get_option('galopin_bbpress_addon_license_status');
 			
-			if(!$status){
+			if(!$status || $status == "invalid"){
 	
 				// data to send in our API request
 				$api_params = array( 
@@ -47,6 +46,7 @@ if(!function_exists('galopin_bbpress_addon_license')){
 				// $license_data->license will be either "valid" or "invalid"
 		
 				update_option( 'galopin_bbpress_addon_license_status', $license_data->license );
+				
 			}
 			
 			$edd_updater = new EDD_SL_Plugin_Updater( EDD_SL_TDF_URL, __FILE__, array( 
@@ -69,33 +69,42 @@ add_action('admin_init', 'galopin_bbpress_addon_license');
  
 if(!function_exists('is_galopin_bbpress_addon_license_valid')){
 	function is_galopin_bbpress_addon_license_valid() {
-	
+		
 		global $wp_version;
-	
-		$license = trim( get_option( EDD_SL_GALOPIN_BBPRESS_LICENSE_KEY ) );
+		//delete_option('galopin_bbpress_addon_license_status');
+		$status = get_option('galopin_bbpress_addon_license_status');
+
+		if(!$status || $status == "invalid"){
 		
-		$api_params = array( 
-			'edd_action' => 'check_license', 
-			'license' => $license, 
-			'item_name' => urlencode( EDD_SL_GALOPIN_BBPRESS ),
-			'url'       => home_url()
-		);
-	
-		// Call the custom API.
-		$response = wp_remote_get( add_query_arg( $api_params, EDD_SL_TDF_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
-	
-		if ( is_wp_error( $response ) )
-			return false;
-	
-		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
+			$license = trim( get_option( EDD_SL_GALOPIN_BBPRESS_LICENSE_KEY ) );
+			
+			$api_params = array( 
+				'edd_action' => 'check_license', 
+				'license' => $license, 
+				'item_name' => urlencode( EDD_SL_GALOPIN_BBPRESS ),
+				'url'       => home_url()
+			);
 		
-		if( $license_data->license == 'valid' ) {
-			return true;
-			// this license is still valid
-		} else {
-			return false;
-			// this license is no longer valid
+			// Call the custom API.
+			$response = wp_remote_get( add_query_arg( $api_params, EDD_SL_TDF_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
+		
+			if ( is_wp_error( $response ) )
+				return false;
+		
+			$license_data = json_decode( wp_remote_retrieve_body( $response ) );
+			
+			if( $license_data->license == 'valid' ) {
+				return true;
+				// this license is still valid
+			} else {
+				return false;
+				// this license is no longer valid
+			}
 		}
+		else{
+			return true;
+		}
+			
 	}
 }
 
@@ -120,7 +129,40 @@ if(!function_exists('galopin_bbpress_addon_license_admin')){
 								 'name'=>substr(EDD_SL_GALOPIN_BBPRESS_LICENSE_KEY, strlen(GALOPIN_COCORICO_PREFIX)),
 								 'label'=>__("License", 'galopin-bbpress'),
 								 'description'=> $description));
+
+			$form->startWrapper('form-table');
+			
+				$form->startWrapper('td');
+				
+					$form->component('raw', '<hr>');
+					
+				$form->endWrapper('td');
+				
+			$form->endWrapper('form-table');
+			
 		endif;
 	}
 }
-add_action('galopin_addons_tab', 'galopin_bbpress_addon_license_admin', 10, 1);
+add_action('galopin_addons_tab', 'galopin_bbpress_addon_license_admin', 11, 1);
+
+/**
+ * Display notice if the license isn't active
+ * 
+ * @package bbPress Galopin Addon
+ * @since 1.0.0
+ */
+
+if(!function_exists('galopin_bbpress_addon_admin_notice')){
+	function galopin_bbpress_addon_admin_notice(){
+	
+		global $current_user;
+        $user_id = $current_user->ID;
+			
+		if(!is_galopin_bbpress_addon_license_valid()){
+			echo '<div class="error"><p>';
+			_e("In order to get updates for the Galopin bbPress Addon, please enter the licence key that you received by email.", 'etendard');
+			echo '</p></div>';
+		}
+	}
+}
+add_action('admin_notices', 'galopin_bbpress_addon_admin_notice');
