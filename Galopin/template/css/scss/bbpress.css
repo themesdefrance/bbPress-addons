@@ -1,8 +1,8 @@
 /*!
-Galopin bbPress addon
+Etendard bbPress addon
 Author : Themes de France
 Author URI: https://www.themesdefrance.fr
-Description: Bring Galopin styles for bbPress
+Description: Bring Etendard styles for bbPress
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -75,11 +75,6 @@ body.reply-edit .reply {
   background: none;
   margin: 0;
   list-style: none;
-}
-#bbpress-forums li:before {
-  content: none;
-  padding-right: 0px;
-  font-size: inherit;
 }
 #bbpress-forums ul.bbp-lead-topic, #bbpress-forums ul.bbp-topics, #bbpress-forums ul.bbp-forums, #bbpress-forums ul.bbp-replies, #bbpress-forums ul.bbp-search-results {
   font-size: 14px;
@@ -727,39 +722,43 @@ p.form-allowed-tags {
 /* =Notices
 -------------------------------------------------------------- */
 div.bbp-template-notice, div.indicator-hint {
-  padding: 30px;
-  background-color: #f8f8f8;
-  margin-bottom: 20px;
-  width: 100%;
-  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  padding: 0 0.6em;
+  margin: 5px 0 15px;
+  border-radius: 3px;
+  background-color: #ffffe0;
+  border-color: #e6db55;
+  color: #000;
   clear: both;
 }
-div.bbp-template-notice.info {
-  background-color: #eff8fe;
-  color: #5db2f0;
+div.bbp-template-notice a {
+  color: #555 !important;
+  text-decoration: none;
 }
-div.bbp-template-notice.info p a {
-  color: #5db2f0 !important;
+div.bbp-template-notice a:hover {
+  color: #000;
+}
+div.bbp-template-notice.info {
+  border: #cee1ef 1px solid;
+  background-color: #f0f8ff;
 }
 div.bbp-template-notice.important {
-  background-color: #fffae9;
-  color: #f8ad0d;
-}
-div.bbp-template-notice.important p a {
-  color: #f8ad0d !important;
+  border: #e6db55 1px solid;
+  background-color: #fffbcc;
 }
 div.bbp-template-notice.error, div.bbp-template-notice.warning {
-  background-color: #ffeeee;
-  color: #fc5355;
+  background-color: #ffebe8;
+  border-color: #c00;
 }
 div.bbp-template-notice.error a, div.bbp-template-notice.warning a {
-  color: #fc5355;
+  color: #c00;
 }
 div.bbp-template-notice p {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  line-height: 1.4;
+  margin: 0.5em 0 6px 0 !important;
+  padding: 2px;
+  font-size: 14px;
+  line-height: 140%;
 }
 
 /* =Stickies

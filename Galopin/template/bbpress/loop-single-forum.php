@@ -3,8 +3,7 @@
 /**
  * Forums Loop - Single Forum
  *
- * @package bbPress
- * @subpackage Theme
+ * @package bbPress Galopin Addon
  */
 
 ?>

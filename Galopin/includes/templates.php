@@ -1,8 +1,12 @@
 <?php
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
- * Set the template path for the bbPress templates.
+ * Set the template path for the custom bbPress template.
  *
+ * @package bbPress Galopin Addon
  * @since 1.0.0
  */
 function galopin_bbp_get_template_path() {
@@ -13,6 +17,7 @@ function galopin_bbp_get_template_path() {
  * Register the new template stack with bbPress.
  * This is really cool stuff.
  *
+ * @package bbPress Galopin Addon
  * @since 1.0.0
  */
 function galopin_bbp_register_theme_packages() {
