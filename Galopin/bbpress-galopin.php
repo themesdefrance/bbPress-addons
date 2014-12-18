@@ -33,11 +33,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 define( 'GALOPIN_BBPRESS_BASENAME', plugin_basename( __FILE__ ) );
 define( 'GALOPIN_BBPRESS_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'GALOPIN_BBPRESS_DIR_URL',  plugin_dir_url( __FILE__ ) );
-define( 'GALOPIN_BBPRESS_VERSION',  '0.0.1' );
+define( 'GALOPIN_BBPRESS_VERSION',  '1.0.0' );
 
-define( 'EDD_SL_TDF_URL', 'https://www.themesdefrance.fr' );
-define( 'EDD_SL_GALOPIN_BBPRESS', 'Galopin - Module bbPress' );
-define( 'EDD_SL_GALOPIN_BBPRESS_LICENSE_KEY', 'galopin_bbpress_galopin_license_edd');
+define( 'GALOPIN_BBPRESS_STORE_URL', 'https://www.themesdefrance.fr' );
+define( 'GALOPIN_BBPRESS_ITEM', 'Galopin - Module bbPress' );
+define( 'GALOPIN_BBPRESS_ITEM_LICENSE_KEY', 'galopin_bbpress_addon_galopin_license');
 
 // Compatibility check.
 require_once( GALOPIN_BBPRESS_DIR_PATH . 'includes/compatibility.php' );
@@ -55,6 +55,31 @@ function galopin_bbp_load_textdomain() {
 	load_plugin_textdomain( 'galopin-bbpress', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' ); 
 }
 add_action( 'plugins_loaded', 'galopin_bbp_load_textdomain' );
+
+/**
+ * Instanciate EDD_SL_Plugin_Updater class
+ * 
+ * @package bbPress Galopin Addon
+ * @since 1.0.0
+ */
+
+if(!function_exists('galopin_bbpress_addon_license')){
+	function galopin_bbpress_addon_license() {
+	
+			// retrieve the license from the database
+			$license = trim( get_option( GALOPIN_BBPRESS_ITEM_LICENSE_KEY ) );
+			
+			$edd_updater = new EDD_SL_Plugin_Updater( GALOPIN_BBPRESS_STORE_URL, __FILE__, array( 
+				'version' 	=> GALOPIN_BBPRESS_VERSION, 
+				'license' 	=> $license,
+				'item_name' => GALOPIN_BBPRESS_ITEM,
+				'author' 	=> __('Themes de France','galopin-bbpress'),
+				'url'       => home_url()
+			)
+		);
+	}
+}
+add_action('plugins_loaded', 'galopin_bbpress_addon_license', 0);
 
 // Load license stuff
 require_once( GALOPIN_BBPRESS_DIR_PATH . 'includes/admin-functions.php' );

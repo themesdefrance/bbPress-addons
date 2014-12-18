@@ -39,14 +39,14 @@ if(!function_exists('galopin_bbpress_admin_init_notices')){
 		if ( get_template() != 'Galopin' ) {
 			?>
 				<div class="error">
-					<p><?php echo sprintf( __( 'Galopin - Module bbPress has been deactivated as it requires %sGalopin theme%s. You must download, install and activate the theme before activating this add-on.', 'galopin-bbpress' ), '<a href="' . esc_url( "https://www.themesdefrance.fr/themes/galopin" ) . '" target="_blank">', '</a>' ) ?></p>
+					<p><?php echo sprintf( __( 'Galopin - bbPress Addon has been deactivated as it requires %sGalopin theme%s. You must download, install and activate the theme before activating this add-on.', 'galopin-bbpress' ), '<a href="' . esc_url( "https://www.themesdefrance.fr/themes/galopin?utm_source=ModuleGalopin&utm_medium=lien&utm_content=GalopinAbsent&utm_campaign=GalopinbbPressAdmin" ) . '" target="_blank">', '</a>' ) ?></p>
 				</div>
 			<?php
 		// bbPress isn't activated
 		} else if ( ! is_plugin_active( 'bbpress/bbpress.php' ) ) {
 			?>
 				<div class="error">
-					<p><?php echo sprintf( __( 'Galopin - Module bbPress has been deactivated as it requires %sbbPress plugin%s. You must download, install and activate the plugin before activating this add-on.', 'galopin-bbpress' ), '<a href="' . esc_url( "http://bbpress.org" ) . '" target="_blank">', '</a>' ) ?></p>
+					<p><?php echo sprintf( __( 'Galopin - bbPress Addon has been deactivated as it requires %sbbPress plugin%s. You must download, install and activate the plugin before activating this add-on.', 'galopin-bbpress' ), '<a href="' . esc_url( "http://bbpress.org" ) . '" target="_blank">', '</a>' ) ?></p>
 				</div>
 			<?php
 		}

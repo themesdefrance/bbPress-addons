@@ -6,59 +6,52 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 // Load EDD Updater Class
 if( !class_exists( 'EDD_SL_Plugin_Updater' ) ) {
 	// load our custom updater
-	include( GALOPIN_BBPRESS_DIR_PATH . 'includes/EDD_SL_Plugin_Updater.php' );
+	include( dirname( __FILE__ ) . '/EDD_SL_Plugin_Updater.php' );
 }
 
+
 /**
- * Activate license and instanciate EDD_SL_Plugin_Updater class
+ * Activate license
  * 
  * @package bbPress Galopin Addon
  * @since 1.0.0
  */
 
-if(!function_exists('galopin_bbpress_addon_license')){
-	function galopin_bbpress_addon_license() {
-	
-			// retrieve the license from the database
-			$license = trim( get_option( EDD_SL_GALOPIN_BBPRESS_LICENSE_KEY ) );
-			$status = get_option('galopin_bbpress_addon_license_status');
+if(!function_exists('galopin_bbpress_addon_activate_license')){
+	function galopin_bbpress_addon_activate_license() {
+		
+		// retrieve the license from the database
+		$license = trim( get_option( GALOPIN_BBPRESS_ITEM_LICENSE_KEY ) );
+		$status = get_option(GALOPIN_BBPRESS_ITEM_LICENSE_KEY . '_status');
 			
-			if(!$status || $status == "invalid"){
-	
-				// data to send in our API request
-				$api_params = array( 
-					'edd_action'=> 'activate_license', 
-					'license' 	=> $license, 
-					'item_name' => urlencode( EDD_SL_GALOPIN_BBPRESS ), // the name of our product in EDD
-					'url'       => home_url()
-				);
-				
-				// Call the custom API.
-				$response = wp_remote_get( add_query_arg( $api_params, EDD_SL_TDF_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
-		
-				// make sure the response came back okay
-				if ( is_wp_error( $response ) )
-					return false;
-		
-				// decode the license data
-				$license_data = json_decode( wp_remote_retrieve_body( $response ) );
-				
-				// $license_data->license will be either "valid" or "invalid"
-		
-				update_option( 'galopin_bbpress_addon_license_status', $license_data->license );
-				
-			}
+		if(!$status || $status == "invalid"){
+
+			// data to send in our API request
+			$api_params = array( 
+				'edd_action'=> 'activate_license', 
+				'license' 	=> $license, 
+				'item_name' => urlencode( GALOPIN_BBPRESS_ITEM ), // the name of our product in EDD
+				'url'       => home_url()
+			);
 			
-			$edd_updater = new EDD_SL_Plugin_Updater( EDD_SL_TDF_URL, __FILE__, array( 
-				'version' 	=> GALOPIN_BBPRESS_VERSION, 
-				'license' 	=> $license,
-				'item_name' => EDD_SL_GALOPIN_BBPRESS,
-				'author' 	=> __('Themes de France','galopin-bbpress') 
-			)
-		);
+			// Call the custom API.
+			$response = wp_remote_get( add_query_arg( $api_params, GALOPIN_BBPRESS_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
+	
+			// make sure the response came back okay
+			if ( is_wp_error( $response ) )
+				return false;
+	
+			// decode the license data
+			$license_data = json_decode( wp_remote_retrieve_body( $response ) );
+			
+			// $license_data->license will be either "valid" or "invalid"
+			
+			update_option( GALOPIN_BBPRESS_ITEM_LICENSE_KEY . '_status', $license_data->license );
+			
+		}
 	}
 }
-add_action('admin_init', 'galopin_bbpress_addon_license');
+add_action('plugins_loaded', 'galopin_bbpress_addon_activate_license');
 
 /**
  * Check whether the license key is valid
@@ -71,22 +64,22 @@ if(!function_exists('is_galopin_bbpress_addon_license_valid')){
 	function is_galopin_bbpress_addon_license_valid() {
 		
 		global $wp_version;
-		//delete_option('galopin_bbpress_addon_license_status');
-		$status = get_option('galopin_bbpress_addon_license_status');
+		//delete_option(GALOPIN_BBPRESS_ITEM_LICENSE_KEY . '_status');
+		$status = get_option(GALOPIN_BBPRESS_ITEM_LICENSE_KEY . '_status');
 
 		if(!$status || $status == "invalid"){
 		
-			$license = trim( get_option( EDD_SL_GALOPIN_BBPRESS_LICENSE_KEY ) );
+			$license = trim( get_option( GALOPIN_BBPRESS_ITEM_LICENSE_KEY ) );
 			
 			$api_params = array( 
 				'edd_action' => 'check_license', 
 				'license' => $license, 
-				'item_name' => urlencode( EDD_SL_GALOPIN_BBPRESS ),
+				'item_name' => urlencode( GALOPIN_BBPRESS_ITEM ),
 				'url'       => home_url()
 			);
 		
 			// Call the custom API.
-			$response = wp_remote_get( add_query_arg( $api_params, EDD_SL_TDF_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
+			$response = wp_remote_get( add_query_arg( $api_params, GALOPIN_BBPRESS_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
 		
 			if ( is_wp_error( $response ) )
 				return false;
@@ -126,7 +119,7 @@ if(!function_exists('galopin_bbpress_addon_license_admin')){
 				$description = __("Enter your licence key in order to receive Galopin bbPress Addon updates. You'll find it in the confirmation email we sent you after your purchase.", 'galopin-bbpress');
 			 
 			$form->setting(array('type'=>'text',
-								 'name'=>substr(EDD_SL_GALOPIN_BBPRESS_LICENSE_KEY, strlen(GALOPIN_COCORICO_PREFIX)),
+								 'name'=>substr(GALOPIN_BBPRESS_ITEM_LICENSE_KEY, strlen(GALOPIN_COCORICO_PREFIX)),
 								 'label'=>__("License", 'galopin-bbpress'),
 								 'description'=> $description));
 

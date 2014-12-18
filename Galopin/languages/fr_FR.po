@@ -1,48 +1,74 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Étendard - Module bbPress\n"
-"POT-Creation-Date: 2014-11-19 16:59+0100\n"
-"PO-Revision-Date: 2014-11-19 17:02+0100\n"
+"POT-Creation-Date: 2014-12-18 18:22+0100\n"
+"PO-Revision-Date: 2014-12-18 18:23+0100\n"
 "Last-Translator: Alex Thèmes de France <alex@themesdefrance.fr>\n"
 "Language-Team: Thèmes de France <bonjour@themesdefrance.fr>\n"
-"Language: en_US\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.5\n"
 "X-Poedit-KeywordsList: __;_e;_x;_n\n"
 "X-Poedit-Basepath: .\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../bbpress-galopin.php:73
+#: ../bbpress-galopin.php:76
 msgid "Themes de France"
 msgstr "Thèmes de France"
 
-#: ../includes/compatibility.php:28
+#: ../includes/admin-functions.php:117
+msgid "Congratulations ! Your licence is activated, you'll receive updates."
+msgstr ""
+"Félicitations ! Votre licence est activée. Vous recevrez les mises à jour."
+
+#: ../includes/admin-functions.php:119
+msgid ""
+"Enter your licence key in order to receive Galopin bbPress Addon updates. "
+"You'll find it in the confirmation email we sent you after your purchase."
+msgstr ""
+"Entrez votre clé de licence pour recevoir les mises à jour du module bbPress "
+"pour Galopin. Vous la trouverez dans l'email de confirmation envoyé suite à "
+"votre commande."
+
+#: ../includes/admin-functions.php:123
+msgid "License"
+msgstr "Licence"
+
+#: ../includes/admin-functions.php:156
+msgid ""
+"In order to get updates for the Galopin bbPress Addon, please enter the "
+"licence key that you received by email."
+msgstr ""
+"Pour recevoir les licences du module bbPress pour Galopin, veuillez entrer "
+"la clé de licence que vous avez reçue par email."
+
+#: ../includes/compatibility.php:42
 #, php-format
 msgid ""
-"Galopin - Module bbPress has been deactivated as it requires %sGalopin theme"
+"Galopin - bbPress Addon has been deactivated as it requires %sGalopin theme"
 "%s. You must download, install and activate the theme before activating this "
 "add-on."
 msgstr ""
-"Galopin - Module bbPress a été désactivé car il a besoin %sdu thème Galopin"
-"%s pour fonctionner. Vous devez télécharger, installer et activer le thème "
-"avant d'activer ce module."
+"Le module bbPress pour Galopin a été désactivé car il a besoin %sdu thème "
+"Galopin%s pour fonctionner. Vous devez télécharger, installer et activer le "
+"thème avant d'activer ce module."
 
-#: ../includes/compatibility.php:35
+#: ../includes/compatibility.php:49
 #, php-format
 msgid ""
-"Galopin - Module bbPress has been deactivated as it requires %sbbPress plugin"
+"Galopin - bbPress Addon has been deactivated as it requires %sbbPress plugin"
 "%s. You must download, install and activate the plugin before activating "
 "this add-on."
 msgstr ""
-"Galopin - Module bbPress a été désactivé car il a besoin %sde l'extension "
-"bbPress%s pour fonctionner. Vous devez télécharger, installer et activer "
-"cette extension avant d'activer ce module."
+"Le module bbPress pour Galopin a été désactivé car il a besoin %sde "
+"l'extension bbPress%s pour fonctionner. Vous devez télécharger, installer et "
+"activer cette extension avant d'activer ce module."
 
-#: ../includes/EDD_SL_Plugin_Updater.php:154
+#: ../includes/EDD_SL_Plugin_Updater.php:157
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a target=\"_blank\" class="
@@ -51,7 +77,7 @@ msgstr ""
 "Une nouvelle version de %1$s est disponible. <a target=\"_blank\" class="
 "\"thickbox\" href=\"%2$s\">Voir les nouveautés de %3$s</a>."
 
-#: ../includes/EDD_SL_Plugin_Updater.php:161
+#: ../includes/EDD_SL_Plugin_Updater.php:164
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a target=\"_blank\" class="
@@ -62,28 +88,23 @@ msgstr ""
 "\"thickbox\" href=\"%2$s\">Voir les nouveautés de %3$s</a> or <a href=\"%4$s"
 "\">mettez à jour maintenant</a>."
 
-#: ../includes/EDD_SL_Plugin_Updater.php:301
+#: ../includes/EDD_SL_Plugin_Updater.php:304
 msgid "You do not have permission to install plugin updates"
 msgstr "Vous n'avez pas le droit d'installer les mises à jour d'extensions"
 
-#: ../includes/EDD_SL_Plugin_Updater.php:301
+#: ../includes/EDD_SL_Plugin_Updater.php:304
 msgid "Error"
 msgstr "Erreur"
 
-#: ../template/forums.php:8
-msgid "Forum"
-msgstr "Forum"
-
-#: ../template/forums.php:47
-msgid "Sorry but no post match what you are looking for."
-msgstr ""
-
-#: ../template/bbpress/loop-single-topic.php:60
+#: ../template/bbpress/loop-single-topic.php:59
 #, php-format
 msgid "Started by: %1$s"
 msgstr ""
 
-#: ../template/bbpress/loop-single-topic.php:68
+#: ../template/bbpress/loop-single-topic.php:67
 #, php-format
 msgid "in: <a href=\"%1$s\">%2$s</a>"
 msgstr ""
+
+#~ msgid "Forum"
+#~ msgstr "Forum"

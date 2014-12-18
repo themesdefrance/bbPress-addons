@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Galopin - Module bbPress\n"
-"POT-Creation-Date: 2014-11-19 16:59+0100\n"
-"PO-Revision-Date: 2014-11-19 16:59+0100\n"
+"POT-Creation-Date: 2014-12-18 18:24+0100\n"
+"PO-Revision-Date: 2014-12-18 18:24+0100\n"
 "Last-Translator: Alex Thèmes de France <alex@themesdefrance.fr>\n"
 "Language-Team: Thèmes de France <bonjour@themesdefrance.fr>\n"
 "Language: en_US\n"
@@ -16,34 +16,54 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../bbpress-galopin.php:73
+#: ../bbpress-galopin.php:76
 msgid "Themes de France"
 msgstr ""
 
-#: ../includes/compatibility.php:28
+#: ../includes/admin-functions.php:117
+msgid "Congratulations ! Your licence is activated, you'll receive updates."
+msgstr ""
+
+#: ../includes/admin-functions.php:119
+msgid ""
+"Enter your licence key in order to receive Galopin bbPress Addon updates. "
+"You'll find it in the confirmation email we sent you after your purchase."
+msgstr ""
+
+#: ../includes/admin-functions.php:123
+msgid "License"
+msgstr ""
+
+#: ../includes/admin-functions.php:156
+msgid ""
+"In order to get updates for the Galopin bbPress Addon, please enter the "
+"licence key that you received by email."
+msgstr ""
+
+#: ../includes/compatibility.php:42
 #, php-format
 msgid ""
-"Galopin - Module bbPress has been deactivated as it requires %sGalopin theme"
+"Galopin - bbPress Addon has been deactivated as it requires %sGalopin theme"
 "%s. You must download, install and activate the theme before activating this "
 "add-on."
 msgstr ""
 
-#: ../includes/compatibility.php:35
+#: ../includes/compatibility.php:49
 #, php-format
 msgid ""
-"Galopin - Module bbPress has been deactivated as it requires %sbbPress plugin"
+"Galopin - bbPress Addon has been deactivated as it requires %sbbPress plugin"
 "%s. You must download, install and activate the plugin before activating "
 "this add-on."
 msgstr ""
 
-#: ../includes/EDD_SL_Plugin_Updater.php:154
+#: ../includes/EDD_SL_Plugin_Updater.php:157
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a target=\"_blank\" class="
 "\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
 msgstr ""
 
-#: ../includes/EDD_SL_Plugin_Updater.php:161
+#: ../includes/EDD_SL_Plugin_Updater.php:164
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a target=\"_blank\" class="
@@ -51,28 +71,20 @@ msgid ""
 "\">update now</a>."
 msgstr ""
 
-#: ../includes/EDD_SL_Plugin_Updater.php:301
+#: ../includes/EDD_SL_Plugin_Updater.php:304
 msgid "You do not have permission to install plugin updates"
 msgstr ""
 
-#: ../includes/EDD_SL_Plugin_Updater.php:301
+#: ../includes/EDD_SL_Plugin_Updater.php:304
 msgid "Error"
 msgstr ""
 
-#: ../template/forums.php:8
-msgid "Forum"
-msgstr ""
-
-#: ../template/forums.php:47
-msgid "Sorry but no post match what you are looking for."
-msgstr ""
-
-#: ../template/bbpress/loop-single-topic.php:60
+#: ../template/bbpress/loop-single-topic.php:59
 #, php-format
 msgid "Started by: %1$s"
 msgstr ""
 
-#: ../template/bbpress/loop-single-topic.php:68
+#: ../template/bbpress/loop-single-topic.php:67
 #, php-format
 msgid "in: <a href=\"%1$s\">%2$s</a>"
 msgstr ""
