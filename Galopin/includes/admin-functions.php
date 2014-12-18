@@ -114,13 +114,13 @@ if(!function_exists('galopin_bbpress_addon_license_admin')){
 		if(function_exists('galopin_bbpress_styles')):
 			
 			if(is_galopin_bbpress_addon_license_valid())
-				$description = __("Congratulations ! Your licence is activated, you'll receive updates.", 'galopin-bbpress');
+				$description = __("Congratulations ! Your licence is activated, you'll receive updates.", 'galopin_bbpress');
 			else
-				$description = __("Enter your licence key in order to receive Galopin bbPress Addon updates. You'll find it in the confirmation email we sent you after your purchase.", 'galopin-bbpress');
+				$description = __("Enter your licence key in order to receive Galopin bbPress Addon updates. You'll find it in the confirmation email we sent you after your purchase.", 'galopin_bbpress');
 			 
 			$form->setting(array('type'=>'text',
 								 'name'=>substr(GALOPIN_BBPRESS_ITEM_LICENSE_KEY, strlen(GALOPIN_COCORICO_PREFIX)),
-								 'label'=>__("License", 'galopin-bbpress'),
+								 'label'=>__("License", 'galopin_bbpress'),
 								 'description'=> $description));
 
 			$form->startWrapper('form-table');

@@ -6,7 +6,7 @@ Version: 0.0.1
 Description: Ce module permet d'adapter le thème WordPress Galopin pour le plugin bbPress.
 Author: Thèmes de France
 Author URI: https://www.themesdefrance.fr
-Text Domain: galopin-bbpress
+Text Domain: galopin_bbpress
 License: GPLv2
 
 This plugin is based on Justin Kopepasah' Eighties bbPress addon.
@@ -52,9 +52,9 @@ require_once( GALOPIN_BBPRESS_DIR_PATH . 'includes/compatibility.php' );
  */
  
 function galopin_bbp_load_textdomain() {
-	load_plugin_textdomain( 'galopin-bbpress', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' ); 
+	load_plugin_textdomain( 'galopin_bbpress', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' ); 
 }
-add_action( 'plugins_loaded', 'galopin_bbp_load_textdomain' );
+add_action( 'plugins_loaded', 'galopin_bbp_load_textdomain', 5);
 
 /**
  * Instanciate EDD_SL_Plugin_Updater class
@@ -73,7 +73,7 @@ if(!function_exists('galopin_bbpress_addon_license')){
 				'version' 	=> GALOPIN_BBPRESS_VERSION, 
 				'license' 	=> $license,
 				'item_name' => GALOPIN_BBPRESS_ITEM,
-				'author' 	=> __('Themes de France','galopin-bbpress'),
+				'author' 	=> __('Themes de France','galopin_bbpress'),
 				'url'       => home_url()
 			)
 		);
