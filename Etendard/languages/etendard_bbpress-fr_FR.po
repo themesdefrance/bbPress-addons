@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Étendard - Module bbPress\n"
-"POT-Creation-Date: 2014-12-19 11:45+0100\n"
+"POT-Creation-Date: 2014-12-19 11:43+0100\n"
 "PO-Revision-Date: 2014-12-19 11:45+0100\n"
 "Last-Translator: Alex Thèmes de France <alex@themesdefrance.fr>\n"
 "Language-Team: Thèmes de France <bonjour@themesdefrance.fr>\n"
@@ -18,27 +18,33 @@ msgstr ""
 
 #: ../bbpress-etendard.php:87
 msgid "Themes de France"
-msgstr ""
+msgstr "Thèmes de France"
 
 #: ../includes/admin-functions.php:96
 msgid "Congratulations ! Your licence is activated, you'll receive updates."
 msgstr ""
+"Félicitations ! Votre licence est activée. Vous recevrez les mises à jour."
 
 #: ../includes/admin-functions.php:98
 msgid ""
 "Enter your licence key in order to receive Etendard bbPress Addon updates. "
 "You'll find it in the confirmation email we sent you after your purchase."
 msgstr ""
+"Entrez votre clé de licence pour recevoir les mises à jour du module bbPress "
+"pour Étendard. Vous la trouverez dans l'email de confirmation envoyé suite à "
+"votre commande."
 
 #: ../includes/admin-functions.php:102
 msgid "License"
-msgstr ""
+msgstr "Licence"
 
 #: ../includes/admin-functions.php:129
 msgid ""
 "In order to get updates for the Etendard bbPress Addon, please enter the "
 "licence key that you received by email."
 msgstr ""
+"Pour recevoir les licences du module bbPress pour Étendard, veuillez entrer "
+"la clé de licence que vous avez reçue par email."
 
 #: ../includes/compatibility.php:42
 #, php-format
@@ -47,6 +53,9 @@ msgid ""
 "theme%s. You must download, install and activate the theme before activating "
 "this add-on."
 msgstr ""
+"Étendard - Module bbPress a été désactivé car il a besoin %sdu thème Étendard"
+"%s pour fonctionner. Vous devez télécharger, installer et activer le thème "
+"avant d'activer ce module."
 
 #: ../includes/compatibility.php:49
 #, php-format
@@ -55,6 +64,9 @@ msgid ""
 "plugin%s. You must download, install and activate the plugin before "
 "activating this add-on."
 msgstr ""
+"Étendard - Module bbPress a été désactivé car il a besoin %sde l'extension "
+"bbPress%s pour fonctionner. Vous devez télécharger, installer et activer "
+"cette extension avant d'activer ce module."
 
 #: ../includes/EDD_SL_Plugin_Updater.php:154
 #, php-format
@@ -62,6 +74,8 @@ msgid ""
 "There is a new version of %1$s available. <a target=\"_blank\" class="
 "\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
 msgstr ""
+"Une nouvelle version de %1$s est disponible. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">Voir les nouveautés de %3$s</a>."
 
 #: ../includes/EDD_SL_Plugin_Updater.php:161
 #, php-format
@@ -70,18 +84,21 @@ msgid ""
 "\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
 "\">update now</a>."
 msgstr ""
+"Une nouvelle version de %1$s est disponible. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">Voir les nouveautés de %3$s</a> or <a href=\"%4$s"
+"\">mettez à jour maintenant</a>."
 
 #: ../includes/EDD_SL_Plugin_Updater.php:301
 msgid "You do not have permission to install plugin updates"
-msgstr ""
+msgstr "Vous n'avez pas le droit d'installer les mises à jour d'extensions"
 
 #: ../includes/EDD_SL_Plugin_Updater.php:301
 msgid "Error"
-msgstr ""
+msgstr "Erreur"
 
 #: ../template/forums.php:8
 msgid "Forum"
-msgstr ""
+msgstr "Forum"
 
 #: ../template/forums.php:47
 msgid "Sorry but no post match what you are looking for."

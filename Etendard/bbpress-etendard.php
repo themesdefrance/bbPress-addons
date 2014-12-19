@@ -6,7 +6,7 @@ Version: 1.0.0
 Description: Ce module permet d'adapter le thème WordPress Étendard pour le plugin bbPress.
 Author: Thèmes de France
 Author URI: https://www.themesdefrance.fr
-Text Domain: etendard-bbpress
+Text Domain: etendard_bbpress
 License: GPLv2
 
 This plugin is based on Justin Kopepasah' Eighties bbPress addon.
@@ -35,47 +35,55 @@ define( 'ETENDARD_BBPRESS_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ETENDARD_BBPRESS_DIR_URL',  plugin_dir_url( __FILE__ ) );
 define( 'ETENDARD_BBPRESS_VERSION',  '1.0.0' );
 
-define( 'EDD_SL_TDF_URL', 'https://www.themesdefrance.fr' );
-define( 'EDD_SL_ETENDARD_BBPRESS', 'Etendard - Module bbPress' );
-define( 'EDD_SL_ETENDARD_BBPRESS_LICENSE_KEY', 'etendard_bbpress_license_edd');
+define( 'ETENDARD_BBPRESS_STORE_URL', 'https://www.themesdefrance.fr' );
+define( 'ETENDARD_BBPRESS_ITEM', 'Etendard - Module bbPress' );
+define( 'ETENDARD_BBPRESS_ITEM_LICENSE_KEY', 'etendard_bbpress_addon_etendard_license');
 
 // Compatibility check.
 require_once( ETENDARD_BBPRESS_DIR_PATH . 'includes/compatibility.php' );
 
+///////////////////////////////////////////////////
 // If we've made it this far, the plugin is active.
+///////////////////////////////////////////////////
 
 /**
- * Load textdomain.
- *
+ * Load translation files
+ * 
+ * @package bbPress Etendard Addon
  * @since 1.0.0
  */
+ 
 function etendard_bbp_load_textdomain() {
-	load_plugin_textdomain( 'etendard-bbpress', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' ); 
+	load_plugin_textdomain( 'etendard_bbpress', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' ); 
 }
-add_action( 'plugins_loaded', 'etendard_bbp_load_textdomain' );
+add_action( 'plugins_loaded', 'etendard_bbp_load_textdomain');
 
-// Load EDD Updater Class
-if( !class_exists( 'EDD_SL_Plugin_Updater' ) ) {
-	// load our custom updater
-	include( ETENDARD_BBPRESS_DIR_PATH . 'includes/EDD_SL_Plugin_Updater.php' );
-}
+/**
+ * Instanciate EDD_SL_Plugin_Updater class
+ * 
+ * @package bbPress Etendard Addon
+ * @since 1.0.0
+ */
 
-function edd_sl_sample_plugin_updater() {
+if(!function_exists('etendard_bbpress_addon_license')){
+	function etendard_bbpress_addon_license() {
+	
+		// retrieve our license key from the DB
+		$license_key = trim( get_option( ETENDARD_BBPRESS_ITEM_LICENSE_KEY ) );
 
-	// retrieve our license key from the DB
-	$license_key = trim( get_option( EDD_SL_ETENDARD_BBPRESS_LICENSE_KEY ) );
-
-	// setup the updater
-	$edd_updater = new EDD_SL_Plugin_Updater( EDD_SL_TDF_URL, __FILE__, array( 
+		$edd_updater = new EDD_SL_Plugin_Updater( ETENDARD_BBPRESS_STORE_URL, __FILE__, array( 
 			'version' 	=> ETENDARD_BBPRESS_VERSION, 
 			'license' 	=> $license_key,
-			'item_name' => EDD_SL_ETENDARD_BBPRESS,
-			'author' 	=> __('Themes de France','etendard-bbpress') 
-		)
-	);
-
+			'item_name' => ETENDARD_BBPRESS_ITEM,
+			'author' 	=> __('Themes de France','etendard_bbpress'),
+			'url'       => home_url()
+		));
+	}
 }
-add_action( 'admin_init', 'edd_sl_sample_plugin_updater', 0 );
+add_action( 'plugins_loaded', 'etendard_bbpress_addon_license', 0);
+
+// Load license stuff
+require_once( ETENDARD_BBPRESS_DIR_PATH . 'includes/admin-functions.php' );
 
 // Add new template stack. Yep, this is cool.
 require_once( ETENDARD_BBPRESS_DIR_PATH . 'includes/templates.php' );

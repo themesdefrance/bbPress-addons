@@ -1,16 +1,12 @@
 <?php
-/**
- * Template functionality.
- *
- * @package Eighties Add-on - bbPress
- *
- * This file contains functionality that adds a
- * new template stack for bbPress.
- */
+
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Set the template path for the bbPress templates.
+ * Set the template path for the custom bbPress template.
  *
+ * @package bbPress Etendard Addon
  * @since 1.0.0
  */
 function etendard_bbp_get_template_path() {
@@ -21,6 +17,7 @@ function etendard_bbp_get_template_path() {
  * Register the new template stack with bbPress.
  * This is really cool stuff.
  *
+ * @package bbPress Etendard Addon
  * @since 1.0.0
  */
 function etendard_bbp_register_theme_packages() {
