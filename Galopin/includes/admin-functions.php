@@ -9,7 +9,6 @@ if( !class_exists( 'EDD_SL_Plugin_Updater' ) ) {
 	include( dirname( __FILE__ ) . '/EDD_SL_Plugin_Updater.php' );
 }
 
-
 /**
  * Activate license
  * 

@@ -2,7 +2,7 @@
 /*
 Plugin Name: Galopin - Module bbPress
 Plugin URI: https://www.themesdefrance.fr/themes/galopin/
-Version: 0.0.1
+Version: 1.0.0
 Description: Ce module permet d'adapter le thème WordPress Galopin pour le plugin bbPress.
 Author: Thèmes de France
 Author URI: https://www.themesdefrance.fr
@@ -42,9 +42,20 @@ define( 'GALOPIN_BBPRESS_ITEM_LICENSE_KEY', 'galopin_bbpress_addon_galopin_licen
 // Compatibility check.
 require_once( GALOPIN_BBPRESS_DIR_PATH . 'includes/compatibility.php' );
 
+///////////////////////////////////////////////////
 // If we've made it this far, the plugin is active.
- 
- /**
+///////////////////////////////////////////////////
+
+// Load license stuff
+require_once( GALOPIN_BBPRESS_DIR_PATH . 'includes/admin-functions.php' );
+
+// Add new template stack. Yep, this is cool.
+require_once( GALOPIN_BBPRESS_DIR_PATH . 'includes/templates.php' );
+
+// Load necessary functions for the new template.
+require_once( GALOPIN_BBPRESS_DIR_PATH . 'template/functions.php' );
+
+/**
  * Load translation files
  * 
  * @package bbPress Galopin Addon
@@ -54,7 +65,7 @@ require_once( GALOPIN_BBPRESS_DIR_PATH . 'includes/compatibility.php' );
 function galopin_bbp_load_textdomain() {
 	load_plugin_textdomain( 'galopin_bbpress', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' ); 
 }
-add_action( 'plugins_loaded', 'galopin_bbp_load_textdomain', 5);
+add_action( 'plugins_loaded', 'galopin_bbp_load_textdomain');
 
 /**
  * Instanciate EDD_SL_Plugin_Updater class
@@ -66,26 +77,16 @@ add_action( 'plugins_loaded', 'galopin_bbp_load_textdomain', 5);
 if(!function_exists('galopin_bbpress_addon_license')){
 	function galopin_bbpress_addon_license() {
 	
-			// retrieve the license from the database
-			$license = trim( get_option( GALOPIN_BBPRESS_ITEM_LICENSE_KEY ) );
-			
-			$edd_updater = new EDD_SL_Plugin_Updater( GALOPIN_BBPRESS_STORE_URL, __FILE__, array( 
-				'version' 	=> GALOPIN_BBPRESS_VERSION, 
-				'license' 	=> $license,
-				'item_name' => GALOPIN_BBPRESS_ITEM,
-				'author' 	=> __('Themes de France','galopin_bbpress'),
-				'url'       => home_url()
-			)
-		);
+		// retrieve the license from the database
+		$license = trim( get_option( GALOPIN_BBPRESS_ITEM_LICENSE_KEY ) );
+		
+		$edd_updater = new EDD_SL_Plugin_Updater( GALOPIN_BBPRESS_STORE_URL, __FILE__, array( 
+			'version' 	=> GALOPIN_BBPRESS_VERSION, 
+			'license' 	=> $license,
+			'item_name' => GALOPIN_BBPRESS_ITEM,
+			'author' 	=> __('Themes de France','galopin_bbpress'),
+			'url'       => home_url()
+		));
 	}
 }
 add_action('plugins_loaded', 'galopin_bbpress_addon_license', 0);
-
-// Load license stuff
-require_once( GALOPIN_BBPRESS_DIR_PATH . 'includes/admin-functions.php' );
-
-// Add new template stack. Yep, this is cool.
-require_once( GALOPIN_BBPRESS_DIR_PATH . 'includes/templates.php' );
-
-// Load necessary functions for the new template.
-require_once( GALOPIN_BBPRESS_DIR_PATH . 'template/functions.php' );
