@@ -68,31 +68,7 @@ if(!function_exists('is_galopin_bbpress_addon_license_valid')){
 		$status = get_option(GALOPIN_BBPRESS_ITEM_LICENSE_KEY . '_status');
 
 		if(!$status || $status == "invalid"){
-		
-			$license = trim( get_option( GALOPIN_BBPRESS_ITEM_LICENSE_KEY ) );
-			
-			$api_params = array( 
-				'edd_action' => 'check_license', 
-				'license' => $license, 
-				'item_name' => urlencode( GALOPIN_BBPRESS_ITEM ),
-				'url'       => home_url()
-			);
-		
-			// Call the custom API.
-			$response = wp_remote_get( add_query_arg( $api_params, GALOPIN_BBPRESS_STORE_URL ), array( 'timeout' => 15, 'sslverify' => false ) );
-		
-			if ( is_wp_error( $response ) )
-				return false;
-		
-			$license_data = json_decode( wp_remote_retrieve_body( $response ) );
-			
-			if( $license_data->license == 'valid' ) {
-				return true;
-				// this license is still valid
-			} else {
-				return false;
-				// this license is no longer valid
-			}
+			return false;
 		}
 		else{
 			return true;
@@ -113,22 +89,20 @@ if(!function_exists('galopin_bbpress_addon_license_admin')){
 
 		if(function_exists('galopin_bbpress_styles')):
 			
-			if(is_galopin_bbpress_addon_license_valid())
-				$description = __("Congratulations ! Your licence is activated, you'll receive updates.", 'galopin_bbpress');
-			else
-				$description = __("Enter your licence key in order to receive Galopin bbPress Addon updates. You'll find it in the confirmation email we sent you after your purchase.", 'galopin_bbpress');
-			 
-			$form->setting(array('type'=>'text',
-								 'name'=>substr(GALOPIN_BBPRESS_ITEM_LICENSE_KEY, strlen(GALOPIN_COCORICO_PREFIX)),
-								 'label'=>__("License", 'galopin_bbpress'),
-								 'description'=> $description));
-
 			$form->startWrapper('form-table');
 			
 				$form->startWrapper('td');
-				
-					$form->component('raw', '<hr>');
-					
+			
+					if(is_galopin_bbpress_addon_license_valid())
+						$description = __("Congratulations ! Your licence is activated, you'll receive updates.", 'galopin_bbpress');
+					else
+						$description = __("Enter your licence key in order to receive Galopin bbPress Addon updates. You'll find it in the confirmation email we sent you after your purchase.", 'galopin_bbpress');
+					 
+					$form->setting(array('type'=>'text',
+										 'name'=>substr(GALOPIN_BBPRESS_ITEM_LICENSE_KEY, strlen(GALOPIN_COCORICO_PREFIX)),
+										 'label'=>__("License", 'galopin_bbpress'),
+										 'description'=> $description));
+			
 				$form->endWrapper('td');
 				
 			$form->endWrapper('form-table');
