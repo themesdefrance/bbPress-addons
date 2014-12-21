@@ -1,6 +1,10 @@
 @charset "UTF-8";
 @import "signature";
 
+.bbpress .content{
+	background:#fff;
+}
+
 #bbpress-forums {
   hr {
     margin: 0 0 24px 0;
@@ -85,6 +89,12 @@ body.reply-edit .reply {
     &.bbp-header, &.bbp-body, &.bbp-footer {
       clear: both;
       word-break: break-word;
+      
+      &:before{
+	      content: "";
+		  padding-right: 0px;
+		  font-size: inherit;
+      }
     }
     &.bbp-header, &.bbp-footer {
       background: #f3f3f3;
@@ -476,6 +486,16 @@ td {
       color: #adadad;
     }
   }
+}
+
+
+#bbpress-forums{
+	ul.forum-titles li:before,
+	.bbp-body > ul > li:before{
+      content: "";
+	  padding-right: 0px;
+	  font-size: inherit;
+	}
 }
 
 /* =Pagination

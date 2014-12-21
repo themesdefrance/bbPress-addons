@@ -1,13 +1,17 @@
 /*!
-Etendard bbPress addon
+Galopin bbPress addon
 Author : Themes de France
 Author URI: https://www.themesdefrance.fr
-Description: Bring Etendard styles for bbPress
+Description: Bring Galopin styles for bbPress
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 */
+.bbpress .content {
+  background: #fff;
+}
+
 #bbpress-forums {
   background: transparent;
   clear: both;
@@ -86,6 +90,11 @@ body.reply-edit .reply {
 #bbpress-forums li.bbp-header, #bbpress-forums li.bbp-body, #bbpress-forums li.bbp-footer {
   clear: both;
   word-break: break-word;
+}
+#bbpress-forums li.bbp-header:before, #bbpress-forums li.bbp-body:before, #bbpress-forums li.bbp-footer:before {
+  content: "";
+  padding-right: 0px;
+  font-size: inherit;
 }
 #bbpress-forums li.bbp-header, #bbpress-forums li.bbp-footer {
   background: #f3f3f3;
@@ -438,6 +447,13 @@ td.bbp-topic-admin-links, td.bbp-topic-counts {
 }
 #bbpress-forums p.bbp-topic-freshness a {
   color: #adadad;
+}
+
+#bbpress-forums ul.forum-titles li:before,
+#bbpress-forums .bbp-body > ul > li:before {
+  content: "";
+  padding-right: 0px;
+  font-size: inherit;
 }
 
 /* =Pagination
