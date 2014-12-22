@@ -126,7 +126,7 @@ if(!function_exists('galopin_bbpress_addon_admin_notice')){
 			
 		if(!is_galopin_bbpress_addon_license_valid()){
 			echo '<div class="error"><p>';
-			_e("In order to get updates for the Galopin bbPress Addon, please enter the licence key that you received by email.", 'etendard');
+			_e("In order to get updates for the Galopin bbPress Addon, please enter the licence key that you received by email.", 'galopin_bbpress');
 			echo '</p></div>';
 		}
 	}

@@ -46,15 +46,6 @@ require_once( GALOPIN_BBPRESS_DIR_PATH . 'includes/compatibility.php' );
 // If we've made it this far, the plugin is active.
 ///////////////////////////////////////////////////
 
-// Load license stuff
-require_once( GALOPIN_BBPRESS_DIR_PATH . 'includes/admin-functions.php' );
-
-// Add new template stack. Yep, this is cool.
-require_once( GALOPIN_BBPRESS_DIR_PATH . 'includes/templates.php' );
-
-// Load necessary functions for the new template.
-require_once( GALOPIN_BBPRESS_DIR_PATH . 'template/functions.php' );
-
 /**
  * Load translation files
  * 
@@ -90,3 +81,12 @@ if(!function_exists('galopin_bbpress_addon_license')){
 	}
 }
 add_action('plugins_loaded', 'galopin_bbpress_addon_license', 0);
+
+// Load license stuff
+require_once( GALOPIN_BBPRESS_DIR_PATH . 'includes/admin-functions.php' );
+
+// Add new template stack. Yep, this is cool.
+require_once( GALOPIN_BBPRESS_DIR_PATH . 'includes/templates.php' );
+
+// Load necessary functions for the new template.
+require_once( GALOPIN_BBPRESS_DIR_PATH . 'template/functions.php' );

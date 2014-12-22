@@ -1,72 +1,24 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Étendard - Module bbPress\n"
-"POT-Creation-Date: 2014-12-18 18:22+0100\n"
-"PO-Revision-Date: 2014-12-19 12:14+0100\n"
+"Project-Id-Version: Galopin - Module bbPress\n"
+"POT-Creation-Date: 2014-12-22 09:13+0100\n"
+"PO-Revision-Date: 2014-12-22 09:16+0100\n"
 "Last-Translator: Alex Thèmes de France <alex@themesdefrance.fr>\n"
 "Language-Team: Thèmes de France <bonjour@themesdefrance.fr>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.7.1\n"
 "X-Poedit-KeywordsList: __;_e;_x;_n\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../bbpress-galopin.php:76
+#: ../bbpress-galopin.php:87
 msgid "Themes de France"
 msgstr "Thèmes de France"
-
-#: ../includes/admin-functions.php:117
-msgid "Congratulations ! Your licence is activated, you'll receive updates."
-msgstr ""
-"Félicitations ! Votre licence est activée. Vous recevrez les mises à jour."
-
-#: ../includes/admin-functions.php:119
-msgid ""
-"Enter your licence key in order to receive Galopin bbPress Addon updates. "
-"You'll find it in the confirmation email we sent you after your purchase."
-msgstr ""
-"Entrez votre clé de licence pour recevoir les mises à jour du module bbPress "
-"pour Galopin. Vous la trouverez dans l'email de confirmation envoyé suite à "
-"votre commande."
-
-#: ../includes/admin-functions.php:123
-msgid "License"
-msgstr "Licence"
-
-#: ../includes/admin-functions.php:156
-msgid ""
-"In order to get updates for the Galopin bbPress Addon, please enter the "
-"licence key that you received by email."
-msgstr ""
-"Pour recevoir les mises à jour du module bbPress pour Galopin, veuillez "
-"entrer la clé de licence que vous avez reçue par email."
-
-#: ../includes/compatibility.php:42
-#, php-format
-msgid ""
-"Galopin - bbPress Addon has been deactivated as it requires %sGalopin theme"
-"%s. You must download, install and activate the theme before activating this "
-"add-on."
-msgstr ""
-"Le module bbPress pour Galopin a été désactivé car il a besoin %sdu thème "
-"Galopin%s pour fonctionner. Vous devez télécharger, installer et activer le "
-"thème avant d'activer ce module."
-
-#: ../includes/compatibility.php:49
-#, php-format
-msgid ""
-"Galopin - bbPress Addon has been deactivated as it requires %sbbPress plugin"
-"%s. You must download, install and activate the plugin before activating "
-"this add-on."
-msgstr ""
-"Le module bbPress pour Galopin a été désactivé car il a besoin %sde "
-"l'extension bbPress%s pour fonctionner. Vous devez télécharger, installer et "
-"activer cette extension avant d'activer ce module."
 
 #: ../includes/EDD_SL_Plugin_Updater.php:157
 #, php-format
@@ -95,6 +47,54 @@ msgstr "Vous n'avez pas le droit d'installer les mises à jour d'extensions"
 #: ../includes/EDD_SL_Plugin_Updater.php:304
 msgid "Error"
 msgstr "Erreur"
+
+#: ../includes/admin-functions.php:96
+msgid "Congratulations ! Your licence is activated, you'll receive updates."
+msgstr ""
+"Félicitations ! Votre licence est activée. Vous recevrez les mises à jour."
+
+#: ../includes/admin-functions.php:98
+msgid ""
+"Enter your licence key in order to receive Galopin bbPress Addon updates. "
+"You'll find it in the confirmation email we sent you after your purchase."
+msgstr ""
+"Entrez votre clé de licence pour recevoir les mises à jour du module bbPress "
+"pour Galopin. Vous la trouverez dans l'email de confirmation envoyé suite à "
+"votre commande."
+
+#: ../includes/admin-functions.php:102
+msgid "License"
+msgstr "Licence"
+
+#: ../includes/admin-functions.php:129
+msgid ""
+"In order to get updates for the Galopin bbPress Addon, please enter the "
+"licence key that you received by email."
+msgstr ""
+"Pour recevoir les mises à jour du module bbPress pour Galopin, veuillez "
+"entrer la clé de licence que vous avez reçue par email."
+
+#: ../includes/compatibility.php:42
+#, php-format
+msgid ""
+"Galopin - bbPress Addon has been deactivated as it requires %sGalopin theme"
+"%s. You must download, install and activate the theme before activating this "
+"add-on."
+msgstr ""
+"Le module bbPress pour Galopin a été désactivé car il a besoin %sdu thème "
+"Galopin%s pour fonctionner. Vous devez télécharger, installer et activer le "
+"thème avant d'activer ce module."
+
+#: ../includes/compatibility.php:49
+#, php-format
+msgid ""
+"Galopin - bbPress Addon has been deactivated as it requires %sbbPress plugin"
+"%s. You must download, install and activate the plugin before activating "
+"this add-on."
+msgstr ""
+"Le module bbPress pour Galopin a été désactivé car il a besoin %sde "
+"l'extension bbPress%s pour fonctionner. Vous devez télécharger, installer et "
+"activer cette extension avant d'activer ce module."
 
 #: ../template/bbpress/loop-single-topic.php:59
 #, php-format
