@@ -22,7 +22,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   background-color: #f9fafa;
 }
 #bbpress-forums div.odd, #bbpress-forums ul.odd {
-  background-color: #f4f5f6;
+  background-color: transparent;
 }
 #bbpress-forums button[type="submit"] {
   display: inline-block;
@@ -57,10 +57,10 @@ body.reply-edit .reply {
   background-color: #fdd;
 }
 #bbpress-forums .status-closed {
-  color: #ccc;
+  color: #aaa;
 }
 #bbpress-forums .status-closed a {
-  color: #ccc;
+  color: #aaa;
 }
 #bbpress-forums ul {
   background: none;

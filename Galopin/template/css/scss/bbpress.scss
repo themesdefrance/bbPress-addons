@@ -18,7 +18,7 @@
     background-color: #f9fafa;
   }
   div.odd, ul.odd {
-    background-color: #f4f5f6;
+    background-color: transparent;
   }
   button[type="submit"] {
     display: inline-block;
@@ -57,9 +57,9 @@ body.reply-edit .reply {
     background-color: #fdd;
   }
   .status-closed {
-    color: #ccc;
+    color: #aaa;
     a {
-      color: #ccc;
+      color: #aaa;
     }
   }
   ul {
