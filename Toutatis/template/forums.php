@@ -1,55 +1,44 @@
 <?php get_header(); ?>
-
-	<section class="headerbar">
 		
-		<div class="wrapper">
-			
-			<h2 class="headerbartitle">
-				<?php echo apply_filters('toutatis_headerbar_bbpress', __('Forum', 'toutatis')); ?>
-			</h2>
-			
-		</div>
-		
-	</section>
+	<div class="wrapper">
 	
-	<section class="blog">
-		
-		<div class="wrapper">
+		<ul class="posts">
 		
 			<?php if(have_posts()) : ?>
 			
 				<?php while (have_posts()) : the_post(); ?>
+			
+				<li>
 					
-					<article <?php post_class('article'); ?>>
-					
-						<header class="header">
+					<article <?php post_class('post'); ?> itemscope itemtype="http://schema.org/Article">
+	
+						<header class="post-header">
 							
-							<h1 class="header-title entry-title">
-								
+							<h1 class="entry-title post-header-title" itemprop="name">
+					
 								<?php the_title(); ?>
-								
+									
 							</h1>
 							
 						</header>
 						
-						<div class="content" itemprop="articleBody">
-							
+						
+						<div class="entry-content post-content" itemprop="articleBody">
+			
 							<?php the_content(); ?>
-							
-						</div>
 					
+						</div>
+						
 					</article>
-
+					
+				</li>
+			
 				<?php endwhile; ?>
-			
-			<?php else : ?>
-			
-				<p><?php echo apply_filters('toutatis_nopostfound', __('Sorry but no post match what you are looking for.','toutatis')); ?></p>
 				
 			<?php endif; ?>
-		
-		</div>
-		
-	</section>
+			
+		</ul>
+	
+	</div>
 
 <?php get_footer(); ?>
