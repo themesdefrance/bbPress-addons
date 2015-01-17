@@ -1,44 +1,55 @@
 <?php get_header(); ?>
 
-<section class="content">
-
-	<div class="wrapper">
-
-		<main class="main-content<?php if ($sidebar) echo ' col-2-3'; ?>" role="main" itemprop="mainContentOfPage">
-
-
+	<section class="headerbar">
+		
+		<div class="wrapper">
+			
+			<h2 class="headerbartitle">
+				<?php echo apply_filters('toutatis_headerbar_bbpress', __('Forum', 'toutatis')); ?>
+			</h2>
+			
+		</div>
+		
+	</section>
+	
+	<section class="blog">
+		
+		<div class="wrapper">
+		
 			<?php if(have_posts()) : ?>
-
+			
 				<?php while (have_posts()) : the_post(); ?>
-
-					<article <?php post_class('post'); ?> itemscope itemtype="http://schema.org/CreativeWork">
-
-						<header class="entry-header">
-
-							<h1 class="entry-title" itemprop="name">
-
+					
+					<article <?php post_class('article'); ?>>
+					
+						<header class="header">
+							
+							<h1 class="header-title entry-title">
+								
 								<?php the_title(); ?>
-
+								
 							</h1>
-
+							
 						</header>
-
-						<div class="entry-content" itemprop="text">
-
+						
+						<div class="content" itemprop="articleBody">
+							
 							<?php the_content(); ?>
-
+							
 						</div>
-
+					
 					</article>
 
 				<?php endwhile; ?>
-
+			
+			<?php else : ?>
+			
+				<p><?php echo apply_filters('toutatis_nopostfound', __('Sorry but no post match what you are looking for.','toutatis')); ?></p>
+				
 			<?php endif; ?>
-
-		</main><!-- END .main-content -->
-
-	</div><!-- END .wrapper -->
-
-</section><!-- END .content -->
+		
+		</div>
+		
+	</section>
 
 <?php get_footer(); ?>

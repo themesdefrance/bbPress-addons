@@ -13,7 +13,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   clear: both;
   margin-bottom: 20px;
   overflow: hidden;
-  font-size: 14px;
+  font-size: 16px;
 }
 #bbpress-forums hr {
   margin: 0 0 24px 0;
@@ -82,7 +82,8 @@ body.reply-edit .reply {
   font-size: inherit;
 }
 #bbpress-forums ul.bbp-lead-topic, #bbpress-forums ul.bbp-topics, #bbpress-forums ul.bbp-forums, #bbpress-forums ul.bbp-replies, #bbpress-forums ul.bbp-search-results {
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1.6;
   overflow: hidden;
   border: 1px solid #eee;
   margin-bottom: 20px;
@@ -364,7 +365,7 @@ span.bbp-admin-links {
 }
 span.bbp-admin-links a {
   color: #bbb;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 12px;
   text-transform: uppercase;
   text-decoration: none;
@@ -530,15 +531,10 @@ td.bbp-topic-admin-links, td.bbp-topic-counts {
 #bbpress-forums fieldset.bbp-form p, #bbpress-forums fieldset.bbp-form textarea, #bbpress-forums fieldset.bbp-form select, #bbpress-forums fieldset.bbp-form input {
   margin: 0 0 8px;
 }
-
-textarea#bbp_reply_content, textarea#bbp_topic_content, textarea#bbp_forum_content {
-  width: 97%;
-  box-sizing: border-box;
-  font-family: "Maven Pro",Helvetica,Arial;
-  font-size: 16px;
-}
-textarea#bbp_forum_content {
-  height: 210px;
+#bbpress-forums fieldset.bbp-form .wp-editor-area {
+  font-family: 'Quicksand';
+  font-weight: normal;
+  margin-top: 2px !important;
 }
 
 #bbpress-forums fieldset.bbp-forum-form-attributes {
@@ -621,7 +617,7 @@ p.form-allowed-tags {
   line-height: 1em;
 }
 #bbpress-forums div.bbp-the-content-wrapper input {
-  font-size: 14px;
+  font-size: 16px;
   padding: 5px;
   margin: 0 2px 0 0;
   line-height: 1em;

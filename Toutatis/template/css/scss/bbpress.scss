@@ -9,7 +9,7 @@
   clear: both;
   margin-bottom: 20px;
   overflow: hidden;
-  font-size: 14px;
+  font-size: 16px;
   div.even, ul.even {
     background-color: #f9fafa;
   }
@@ -81,7 +81,8 @@ body.reply-edit .reply {
   
   ul {
     &.bbp-lead-topic, &.bbp-topics, &.bbp-forums, &.bbp-replies, &.bbp-search-results {
-      font-size: 14px;
+      font-size: 16px;
+      line-height: 1.6;
       overflow: hidden;
       border: 1px solid #eee;
       margin-bottom: 20px;
@@ -394,7 +395,7 @@ span.bbp-admin-links {
   color: #ddd;
   a {
     color: #bbb;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 12px;
     text-transform: uppercase;
     text-decoration: none;
@@ -575,20 +576,13 @@ td {
   p, textarea, select, input {
     margin: 0 0 8px;
   }
-}
-
-textarea{	
-
-  &#bbp_reply_content, &#bbp_topic_content, &#bbp_forum_content {
-    width: 97%;
-    box-sizing: border-box;
-    font-family: "Maven Pro",Helvetica,Arial;
-    font-size:16px;
-  }
-  &#bbp_forum_content {
-    height: 210px;
+  .wp-editor-area {
+    font-family: 'Quicksand';
+    font-weight: normal;
+    margin-top: 2px !important;
   }
 }
+
 
 #bbpress-forums fieldset {
   &.bbp-forum-form-attributes {
@@ -679,7 +673,7 @@ p.form-allowed-tags {
         line-height: 1em;
       }
       input {
-        font-size: 14px;
+        font-size: 16px;
         padding: 5px;
         margin: 0 2px 0 0;
         line-height: 1em;
