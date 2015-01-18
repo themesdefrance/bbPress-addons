@@ -18,6 +18,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 #bbpress-forums hr {
   margin: 0 0 24px 0;
 }
+#bbpress-forums a {
+  text-decoration: none;
+}
+#bbpress-forums a:hover {
+  text-decoration: underline;
+}
 #bbpress-forums div.even, #bbpress-forums ul.even {
   background-color: #f9fafa;
 }
@@ -36,6 +42,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
   position: relative;
+  border: none;
+}
+#bbpress-forums input[type='text'], #bbpress-forums input[type='email'], #bbpress-forums input[type='url'], #bbpress-forums input[type='tel'], #bbpress-forums input[type='number'], #bbpress-forums input[type='date'], #bbpress-forums textarea, #bbpress-forums select {
   border: none;
 }
 
@@ -519,6 +528,7 @@ td.bbp-topic-admin-links, td.bbp-topic-counts {
 #bbpress-forums fieldset.bbp-form label {
   margin: 0;
   display: inline-block;
+  padding-bottom: 10px;
 }
 #bbpress-forums fieldset.bbp-form .bbp-form {
   padding: 0;

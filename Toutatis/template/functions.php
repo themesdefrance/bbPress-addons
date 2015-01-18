@@ -13,7 +13,7 @@ if(!function_exists('toutatis_bbpress_styles')){
 	function toutatis_bbpress_styles(){
 		if (get_option('toutatis_color')){
 			$color = apply_filters('toutatis_color', get_option('toutatis_color'));
-			
+
 			require_once get_template_directory() . '/admin/functions/color-functions.php';
 			$hsl = toutatis_RGBToHSL(toutatis_HTMLToRGB($color));
 			if ($hsl->lightness > 180){
@@ -22,16 +22,16 @@ if(!function_exists('toutatis_bbpress_styles')){
 			else{
 				$contrast = apply_filters('toutatis_color_contrast', '#fff');
 			}
-			
+
 			$hsl->lightness -= 30;
 			$complement = apply_filters('toutatis_color_complement', toutatis_HSLToHTML($hsl->hue, $hsl->saturation, $hsl->lightness));
 		}
 		else{ // Default color
-			$color = '#02a7c6';
-			$complement = '#007f96';
+			$color = '#ff625b';
+			$complement = '#D14949';
 			$contrast = '#fff';
 		} ?>
-		
+
 		<style type="text/css">
 			#bbpress-forums a{
 				color: <?php echo $color; ?>;
@@ -40,12 +40,12 @@ if(!function_exists('toutatis_bbpress_styles')){
 				background: <?php echo $color; ?> !important;
 				color: <?php echo $contrast; ?> !important;
 			}
-			
+
 			#bbpress-forums button[type='submit']:hover{
 				background:<?php echo $complement; ?> !important;
 			}
 		</style>
-		
+
 		<?php
 	}
 }
